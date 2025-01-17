@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: edu-user
+app:
+  run:
+    type: default
+server:
+  port: 80
+edu-goods:
+  base-url: http://edu-goods-service.edu-goods.svc.cluster.local
