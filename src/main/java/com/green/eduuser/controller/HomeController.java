@@ -11,4 +11,9 @@ public class HomeController {
         return "Application is running";
     }
 
+    @GetMapping("/check")
+    public String check() {
+        return "sucess";
+    }
+
 }
