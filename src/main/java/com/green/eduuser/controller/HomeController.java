@@ -13,7 +13,7 @@ public class HomeController {
 
     @GetMapping("/check")
     public String check() {
-        return "sucess";
+        return "sucess!";
     }
 
 }
