@@ -1,11 +1,13 @@
 package com.green.eduuser.service;
 
 import com.green.eduuser.dto.GoodsDto;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+@Slf4j
 @Service
 public class EduGoodsClient {
 
@@ -20,10 +22,12 @@ public class EduGoodsClient {
 
     public GoodsDto getProductByProductNo(String goodsNo) {
         // edu-goods의 API URL
-        String url = UriComponentsBuilder.fromHttpUrl(eduGoodsBaseUrl)
+        String url = UriComponentsBuilder.fromUriString(eduGoodsBaseUrl)
             .path("/api/v1/goods/")
             .path(goodsNo)
             .toUriString();
+
+        log.info("edu-goods 요청 경로: " + url);
 
         // edu-goods API 호출
         return restTemplate.getForObject(url, GoodsDto.class);
