@@ -21,7 +21,8 @@ public class EduGoodsClient {
     public GoodsDto getProductByProductNo(String goodsNo) {
         // edu-goods의 API URL
         String url = UriComponentsBuilder.fromHttpUrl(eduGoodsBaseUrl)
-            .pathSegment("/api/v1/goods", goodsNo)  // /products/{goodsNo}
+            .path("/api/v1/goods/")
+            .path(goodsNo)
             .toUriString();
 
         // edu-goods API 호출
