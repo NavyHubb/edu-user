@@ -52,7 +52,6 @@ jobs:
         with:
           repository: NavyHubb/edu-k8s-manifest
           token: ${{ secrets.MANIFEST_GITHUB_TOKEN }}
-          path: manifests
 
       - name: Update Kubernetes resources
         run: |
@@ -63,9 +62,10 @@ jobs:
 
       - name: Commit files   # kubernetes 설정 파일 변경 사항을 커밋하고 manifest를 관리하는 GitHub 레포지토리에 푸시
         run: |
-          cd manifests
-          echo "`ls`"
+          cd edu-user
+          echo "Committing updated files to the repository..."
           git config --global user.email "sngjae972@github.com"
           git config --global user.name "김성재"
-          git commit -am "Update image tag"
+          git add .
+          git commit -m "Update image tag to ${{ env.VERSION }} for edu-user"
           git push -u origin main
