@@ -17,7 +17,7 @@ public class UserService {
         // 사용자 데이터를 생성
         GoodsDto goodsDto = eduGoodsClient.getProductByProductNo("1");
 
-        return new UserDto(userNo, "Name", goodsDto);
+        return new UserDto(userNo, "Name " + userNo, goodsDto);
     }
 
 }
