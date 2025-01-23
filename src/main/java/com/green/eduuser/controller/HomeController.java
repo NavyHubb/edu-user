@@ -8,7 +8,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String home() {
-        return "Application is running";
+        return "Application is running!!!";
     }
 
     @GetMapping("/check")
