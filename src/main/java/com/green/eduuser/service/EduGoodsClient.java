@@ -21,7 +21,6 @@ public class EduGoodsClient {
     }
 
     public GoodsDto getProductByProductNo(String goodsNo) {
-        // edu-goods의 API URL
         String url = UriComponentsBuilder.fromUriString(eduGoodsBaseUrl)
             .path("/api/v1/goods/")
             .path(goodsNo)
@@ -29,10 +28,6 @@ public class EduGoodsClient {
 
         log.info("edu-goods 요청 경로: " + url);
 
-        GoodsDto object = restTemplate.getForObject(url, GoodsDto.class);
-        log.info(object.goodsName());
-
-        // edu-goods API 호출
-        return object;
+        return restTemplate.getForObject(url, GoodsDto.class);
     }
 }
